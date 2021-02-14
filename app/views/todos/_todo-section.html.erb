@@ -1,0 +1,30 @@
+<section class="TodoSection">
+        <div class="TodoSection-box"> 
+            <p class="TodoSection-title"><%= section_title%></p>
+            <p class="TodoSection-count"><%= todos.completed.count%>/<%= todos.count%></p>
+        </div>
+        <ul>
+            <% todos.all.each do |todo| %>
+                <li>
+                    <label class="TodoSection-todo">
+                        <%= form_with(url: "/todos/#{todo.id}" , method: "put") do %>
+                        <input 
+                            type="checkbox" 
+                            name="completed" <%= todo.completed ? "checked" : ""%>
+                            onclick="this.form.submit()"
+                        />
+                        <% end %>
+                        <p class= <%= todo.completed ? "TodoSection-text" : ""%>><%= todo.todo_text%></p>
+                        <% if show_due_date %>
+                        <p class="TodoSection-date"><%= todo.due_date%></p>
+                        <% end %>
+
+                        <%= form_with(url: "/todos/#{todo.id}" , method: "delete") do%>
+                        <input type="submit"  value="delete">
+                        <% end %>
+
+                    </label>
+                </li>
+            <% end %>    
+        </ul>
+</section>

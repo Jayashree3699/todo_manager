@@ -1,0 +1,33 @@
+body {
+    font-family: sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+    
+}
+
+.TodoPage-title {
+    font-size: 34px;
+    line-height: 1.6;
+    color: #453C52;
+}
+.TodoSection-title {
+    font-size: 20px;
+    line-height: 1.4;
+    color: #453C52;
+}
+.TodoSection-todo {
+    font-size: 14px;
+    line-height: 1.4; 
+    color: #453C52;
+    
+
+}
+.TodoSection-todo:hover{
+    background-color: #F1EDF7;
+}
+
+.TodoSection {
+    margin-bottom: 20px;
+    margin-left: 20px;
+    padding: 20px;
+}
