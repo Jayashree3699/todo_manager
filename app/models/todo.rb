@@ -1,4 +1,7 @@
 class Todo < ActiveRecord::Base
+    validates :todo_text , :due_date , presence: true
+    belongs_to :user
+    
     def to_pleasant_string
         is_completed = completed ? "[X]" : "[ ]"
         "#{id}. #{todo_text} #{due_date.to_s(:short)} #{is_completed}"
@@ -24,6 +27,10 @@ class Todo < ActiveRecord::Base
 
     def self.completed
         all.where(completed: true)
+    end    
+
+    def self.of_user(current_user)
+        all.where("user_id = ?",current_user.id)
     end    
     ########################
     def to_displayable_string    

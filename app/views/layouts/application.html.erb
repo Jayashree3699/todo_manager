@@ -11,6 +11,15 @@
   </head>
 
   <body>
+  <div class="Welcome-bar">
+    <% if @current_user%><br><br><br>
+      <h5 class="Welcome">welcome <%= @current_user.first_name%></h5>
+      <%= link_to "Signout" , destroy_session_path , :method => :delete ,:class => "Signout"%>
+  
+    <% end %>
+   </div> 
+   <p class="Flash-error"> <%= flash[:error]%></p>
+    
     <%= yield %>
   </body>
 </html>

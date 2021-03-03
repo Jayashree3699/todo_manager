@@ -1,12 +1,14 @@
-<section class="TodoSection">
-        <div class="TodoSection-box"> 
-            <p class="TodoSection-title"><%= section_title%></p>
-            <p class="TodoSection-count"><%= todos.completed.count%>/<%= todos.count%></p>
+<section class="Main-box Shadow">
+        <div> 
+            <p class="Hilight"><%= section_title%>    <%= todos.completed.count%>/<%= todos.count%></p>
+           <br>
         </div>
         <ul>
             <% todos.all.each do |todo| %>
                 <li>
+                    <div class="Hover-effect">
                     <label class="TodoSection-todo">
+                    
                         <%= form_with(url: "/todos/#{todo.id}" , method: "put") do %>
                         <input 
                             type="checkbox" 
@@ -20,11 +22,16 @@
                         <% end %>
 
                         <%= form_with(url: "/todos/#{todo.id}" , method: "delete") do%>
-                        <input type="submit"  value="delete">
+                        <div class="Image">
+                       
+                        <input type="image"  src="/assets/delete-24px.svg">
+                        </div>
                         <% end %>
-
+                    
                     </label>
+                    </div>
                 </li>
             <% end %>    
         </ul>
 </section>
+

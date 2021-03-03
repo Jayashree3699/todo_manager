@@ -1,0 +1,15 @@
+<h1>welcome new user</h1>
+<section>
+<%= form_with url: users_path do |form|%>
+    <p>First Name:</p>
+    <%= form.text_field :first_name %>
+    <p>Last Name:</p>
+    <%= form.text_field :last_name %>
+    <p>Email:</p>
+    <%= form.email_field :email %>
+    <p>Password</p>
+    <%= form.password_field :password %><br>
+    <%= form.submit "SignUp" %>
+
+<% end %>
+</section>
